@@ -1,6 +1,6 @@
 # For Knowledge Workers — Specialized Branch
 
-> Branching from end of Stage 7. Apply agentic AI to office / knowledge work.
+> [← Back to main path README](../README.en.md) · Branching from end of Stage 7. Apply agentic AI to office / knowledge work.
 
 ## Use Cases
 

@@ -59,10 +59,10 @@ A project worth listing must have:
 
 ## Bilingual Style
 
-- **English is canonical**. Translation goes EN → 繁中.
-- **繁中 (Traditional Chinese), not 簡中**. If you submit zh-CN we'll ask you to convert.
+- **Traditional Chinese (zh-TW) is canonical**; English (`*.en.md`) is the companion.
+- **No zh-CN PRs accepted**. If you submit zh-CN we'll ask you to convert.
 - **Natural translation**, not word-for-word. Technical terms can stay in English where natural ("使用 LangGraph 建 multi-agent 系統").
-- Terminology consistency rules will live in `resources/style-guide.md` (Phase 2 work).
+- **Full style rules: see [`resources/style-guide.md`](resources/style-guide.md)** (zh) or [`resources/style-guide.en.md`](resources/style-guide.en.md) (en) — banned words, entry schema, license conventions, writing style, recommendation star definitions all live there. Read before PR.
 
 ## Process
 

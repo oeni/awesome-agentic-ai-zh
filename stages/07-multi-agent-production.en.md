@@ -19,13 +19,22 @@ The final stage. You're moving from "I can build agents" to "I can run them in p
 3. [**Anthropic — Message Batches API**](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) — async batch jobs
 4. **One eval framework's docs** — promptfoo OR LangSmith OR weave
 
-## 🛠 Hello-X
+## 🛠 Hello-X Projects (must run, not just read)
 
-- **Hello Multi-Agent** — 2 agents debating a topic, 3rd agent judging
-- **Hello Eval** — write evals for an agent, measure success rate across N runs
-- **Hello Observability** — connect LangSmith / Helicone / weave to an agent, view trace
-- **Hello SDK Advanced** — use streaming + prompt caching + tool use in one call
-- **Hello Deploy** — package an agent in Docker, deploy to cloud (any platform)
+### Hello-1: Multi-Agent debate
+Two agents debate a topic (e.g. "Python vs Rust for backend"), a third agent judges. Watch for convergence vs divergence patterns.
+
+### Hello-2: Eval
+Write an eval for one of your earlier agents, run it N times, measure success rate. Replace "I'll just eyeball it."
+
+### Hello-3: Observability
+Connect LangSmith / Helicone / weave to an agent, view the full trace. Understand: "agent debugging without observability = black box."
+
+### Hello-4: SDK advanced
+Use streaming + prompt caching + tool use in one call. Watch how cost drops.
+
+### Hello-5: Deploy
+Package an agent in Docker, deploy to cloud (any provider). Learn to ship a prototype as something others can run.
 
 ## 🎯 Curated Projects
 

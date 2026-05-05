@@ -50,6 +50,16 @@ Run the same prompt 100 times and watch token counts vary.
 ### Hello, Pricing
 Calculate the actual dollar cost of running 1000 inferences for your hello-world prompt. Use Anthropic's pricing page + count tokens via the SDK's `usage` field.
 
+### Hello, Cross-Provider Comparison
+Send the same prompt to Claude, GPT, and Gemini simultaneously, compare their responses. Notice "why does the same input produce different answers" — answer style, length, and judgment all differ. Use the OpenAI, Anthropic, and Google SDKs side-by-side.
+
+### Hello, Error Handling
+Trigger error conditions deliberately and write retry logic:
+- Wrong API key → see how it raises
+- Over-long prompt → what happens when the context window is full
+- Network drop → write a retry wrapper with exponential backoff
+This is foundational for Stage 3-7's production agent code.
+
 ## 🎯 Curated Projects
 
 ### [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)

@@ -61,10 +61,10 @@
 
 ## 雙語風格
 
-- **英文是正本**。翻譯方向 EN → 繁中。
-- **繁中（Traditional Chinese），不是簡中**。如果你交 zh-CN 的 PR，我們會請你轉成繁中。
+- **繁中（Traditional Chinese, zh-TW）為正本**，英文版（`*.en.md`）是 companion。
+- **不接受 zh-CN PR**。如果你交 zh-CN 的 PR，我們會請你轉成繁中。
 - **自然翻譯**，不要逐字對譯。技術詞如果直接用英文比較自然，就保留英文（「使用 LangGraph 建 multi-agent 系統」）。
-- 用詞一致性規則之後會放在 `resources/style-guide.md`（Phase 2 工作）。
+- **完整風格規範請看 [`resources/style-guide.md`](resources/style-guide.md)**——禁用詞、entry schema、license 標註慣例、寫作風格、推薦星等定義都在裡面。PR 之前請先讀。
 
 ## 流程
 

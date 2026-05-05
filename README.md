@@ -144,17 +144,32 @@ cd awesome-agentic-ai-zh
 
 ---
 
-## 🚧 Phase 1 現況
+## 📍 現況：Phase 2 進行中
 
-目前是 **Phase 1** — 7 階段骨架 + anchor curation（115+ 個 project）。
+**Phase 1（已完成）** — 7 階段骨架 + anchor curation（115+ 個 project）
 
-### Phase 2 計畫
+**Phase 2（進行中）** — Polish & Fill：
+- [x] `resources/style-guide.md` — 術語、entry schema、license 慣例（[zh](resources/style-guide.md) / [en](resources/style-guide.en.md)）
+- [x] `.github/` 模板（issue + PR template）
+- [x] Hello-X 格式統一（Stages 6-7 從 bullet-list 改成 `### Hello-X` headers）
+- [x] Hello-X 擴充（Stage 1 +2、Stage 4 +2）
+- [x] Branches back-nav（4 個 branch + en companion 共 8 個檔案）
+- [x] 教師 branch 加 prompt 素材庫
+- [ ] 補到 130-160 curated projects（目前 116+）
 
-- 補到 130-160 curated projects
-- Stage 5 stack-at-a-glance SVG 升級版（取代 ASCII 圖）
-- 補 `resources/style-guide.md` 術語一致性
-- 教師 branch 內容擴充（目前最薄）
-- Phase 2 後考慮做 PDF / GitBook 版本
+**Phase 3（規劃中）** — Curation depth：
+- 補到 130-160 entries
+- Stage 0 reference 擴充
+- 跨 stage walkthrough：「7 步打造你的第一個 agent」
+- 連結 / 星數定期 refresh script
+
+**Phase 4（規劃中）** — Visual polish：
+- Stage 5 stack diagram SVG（取代 ASCII）
+- README hero diagram + branch decision tree
+
+**Phase 5（規劃中）** — Distribution：PDF / GitBook 版本
+
+**Phase 6（持續中）** — Community + maintenance：CI link-rot 檢查、貢獻者 ladder、推廣
 
 ---
 

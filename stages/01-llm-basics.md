@@ -52,6 +52,16 @@ print(msg.content[0].text)
 ### Hello, Pricing
 算出你的 hello-world prompt 跑 1000 次的實際美金成本。用 Anthropic 的 pricing page + SDK 的 `usage` 欄位來算 token。
 
+### Hello, Cross-Provider 比較
+同一個 prompt 同時送給 Claude、GPT、Gemini，比較三家的回應差異。觀察「同一句話為什麼產生不同答案」——回答風格、長度、判斷取捨都不一樣。建議用 OpenAI、Anthropic、Google 三家 SDK 各一段程式呼叫。
+
+### Hello, Error Handling
+故意觸發錯誤情境並寫 retry：
+- API key 錯誤 → 看怎麼 raise
+- prompt 超長 → context window 滿了會發生什麼
+- 網路斷掉 → 寫一個有 exponential backoff 的 retry wrapper
+這是後面 Stage 3-7 寫 production agent 一定會用到的基礎。
+
 ## 🎯 精選 Projects
 
 ### [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)

@@ -18,12 +18,19 @@ Agents that don't remember past interactions are not useful. RAG (Retrieval-Augm
 3. [**Pinecone — Learning Center**](https://www.pinecone.io/learn/) — vector DB fundamentals
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic's RAG technique with prompt caching
 
-## 🛠 Hello-X
+## 🛠 Hello-X Projects (must run, not just read)
 
-- **Hello Embeddings** — embed 100 sentences, find nearest neighbors of one query
-- **Hello Vector DB** — store embeddings in Chroma, query semantically
-- **Hello RAG** — full pipeline: chunk a PDF → embed → retrieve top-k → generate answer
-- **Hello Memory** — give an agent conversational memory across multiple turns
+### Hello-1: Embeddings
+Embed 100 sentences, find nearest neighbors of one query. Build intuition for what "vector distance" means.
+
+### Hello-2: Vector DB
+Store embeddings in Chroma, query semantically. Compare against keyword search.
+
+### Hello-3: Full RAG pipeline
+Chunk a PDF → embed → retrieve top-k → generate answer. The basic skeleton most RAG apps use.
+
+### Hello-4: Long-term memory
+Give an agent conversational memory across multiple sessions. Use `mem0` or roll your own with a vector store.
 
 ## 🎯 Curated Projects
 

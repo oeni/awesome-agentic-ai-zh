@@ -42,6 +42,12 @@ Use CrewAI to build 2-3 agents with distinct roles working on the same task. (Cr
 ### Hello-3: Graph-based workflow
 Use LangGraph to build a workflow with branching logic and human-in-the-loop checkpoint. (LangGraph is best for this.)
 
+### Hello-4: CodeAct vs JSON tool
+Build a Smolagents agent that writes Python code as actions (CodeAct pattern), then compare against the JSON tool-call route from Hello-1. Ask the same question and observe how the two routes solve it differently.
+
+### Hello-5: Type-safe agent
+Use Pydantic AI to build an agent that returns structured output (e.g. ask a question, get back `{ "answer": str, "confidence": float, "sources": [str] }`). Watch how Pydantic's schema validation prevents the agent from cutting corners or hallucinating structure.
+
 ## 🎯 Curated Projects
 
 ### [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ Production-grade

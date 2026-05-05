@@ -1,6 +1,6 @@
 # For Teachers — Specialized Branch
 
-> Branching from end of Stage 7. Apply agentic AI to teaching workflows.
+> [← Back to main path README](../README.en.md) · Branching from end of Stage 7. Apply agentic AI to teaching workflows.
 
 ## Use Cases
 
@@ -54,6 +54,23 @@ Best entry point for teachers. Use Claude.ai (web) for low-barrier start; upgrad
 **Best for**: Chinese-language teachers wanting a ready LLM curriculum to adapt to their students' level.
 
 **Notes**: Same caveat as `huggingface/agents-course` — it's "teach students to build LLM apps," not "AI assistant for the teacher."
+
+---
+
+### Prompt Libraries
+
+#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+
+| Field | Value |
+|---|---|
+| Stars | ★ 161k+ |
+| License | NOASSERTION (CC0 / public-domain-style, but no SPDX) |
+
+**What it teaches**: Community-maintained prompt megacatalog — "act as X" templates covering hundreds of roles (teacher, interviewer, stand-up comedian, debater, ...). Teachers can use it as "prompt writing examples" to show students, or borrow specific prompts for in-class demos.
+
+**Best for**: Teachers introducing "prompt engineering" who want concrete examples of different writing styles to compare.
+
+**Notes**: Quality varies — treat as a sourcebook to pick from, not "use everything as-is."
 
 ---
 

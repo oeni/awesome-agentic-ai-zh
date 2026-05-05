@@ -2,7 +2,7 @@
 
 > [English](./for-teacher.en.md) | **繁體中文**
 
-> 從 Stage 7 結尾分支出來。把 agentic AI 應用到教學流程上。
+> [← 回主路線 README](../README.md) · 從 Stage 7 結尾分支出來。把 agentic AI 應用到教學流程上。
 
 ## 使用情境
 
@@ -56,6 +56,23 @@
 **適合誰**：中文教師要找現成可改的 LLM 教材底稿、再針對自己學生程度調整。
 
 **備註**：跟 hf agents-course 一樣，是「教學生建 LLM 應用」的教材，不是「教師端的 AI 助教」。
+
+---
+
+### Prompt 素材庫
+
+#### [f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) ⭐⭐⭐⭐
+
+| 欄位 | 內容 |
+|---|---|
+| Stars | ★ 161k+ |
+| License | NOASSERTION（CC0 / public domain 風格，但未提供 SPDX） |
+
+**教什麼**：社群維護的 prompt 大全——「act as X」型樣板涵蓋幾百種角色（老師、面試官、stand-up comedian、辯論者⋯）。教師可以拿來當「prompt 寫法範例」教給學生，或直接借用其中合適的當作課堂示範。
+
+**適合誰**：要教學生「prompt engineering」的老師，找現成例子比較不同寫法的差異。
+
+**備註**：品質不一致——當作素材庫挑選用，不是「全部直接拿去教」。
 
 ---
 

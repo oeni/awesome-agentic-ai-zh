@@ -20,12 +20,19 @@
 3. [**Pinecone — Learning Center**](https://www.pinecone.io/learn/) — vector DB 基礎
 4. [**Anthropic — Contextual Retrieval**](https://www.anthropic.com/news/contextual-retrieval) — Anthropic 搭配 prompt caching 的 RAG 寫法
 
-## 🛠 Hello-X
+## 🛠 Hello-X Projects（必跑、不是看就好）
 
-- **Hello Embeddings** — 把 100 個句子做 embedding，找出某個 query 的最近鄰
-- **Hello Vector DB** — 把 embedding 存進 Chroma，做語意 query
-- **Hello RAG** — 完整流水線：把 PDF 切塊 → embed → 取 top-k → 生成回答
-- **Hello Memory** — 讓 agent 在多輪對話之間記得事情
+### Hello-1: Embeddings
+把 100 個句子做 embedding，找出某個 query 的最近鄰。理解 vector 之間的距離意義。
+
+### Hello-2: Vector DB
+把 embedding 存進 Chroma，做語意 query。比對「跟 keyword search 差在哪」。
+
+### Hello-3: 完整 RAG 流水線
+把一份 PDF 切塊 → embed → 取 top-k → 生成回答。這是大多數 RAG 應用的基本骨架。
+
+### Hello-4: Long-term Memory
+讓 agent 在多輪對話之間記得事情。可以用 `mem0` 或自己用 vector store 接。
 
 ## 🎯 精選 Projects
 

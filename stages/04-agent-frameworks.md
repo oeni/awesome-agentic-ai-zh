@@ -44,6 +44,12 @@
 ### Hello-3: 圖式 workflow
 用 LangGraph 做一個有分支邏輯跟 human-in-the-loop checkpoint 的 workflow。（這種情境 LangGraph 最拿手。）
 
+### Hello-4: CodeAct vs JSON tool
+用 Smolagents 做一個會寫 Python 程式碼當作 action 的 agent（CodeAct pattern），跟 Hello-1 用的 JSON tool call 路線比較。問同一個問題，看兩種路線怎麼解。
+
+### Hello-5: 型別安全 agent
+用 Pydantic AI 做一個會回傳結構化輸出的 agent（例如：問問題回 `{ "answer": str, "confidence": float, "sources": [str] }`）。看 Pydantic 的 schema validation 怎麼防止 agent 偷懶或 hallucinate 結構。
+
 ## 🎯 精選 Projects
 
 ### [LangGraph](https://github.com/langchain-ai/langgraph) ⭐ production 等級

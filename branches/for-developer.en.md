@@ -1,6 +1,6 @@
 # For Developers — Specialized Branch
 
-> Branching from end of Stage 7. Apply agentic AI to coding workflows.
+> [← Back to main path README](../README.en.md) · Branching from end of Stage 7. Apply agentic AI to coding workflows.
 
 ## Use Cases
 
