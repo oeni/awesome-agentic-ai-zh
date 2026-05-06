@@ -108,6 +108,10 @@ flowchart LR
 
 After the main path, pick one of 5 specialized branches. **Not sure which?**
 
+![Branch decision tree](resources/diagrams/branch-decision-tree.png)
+
+> Text version (screen-reader friendly / for mdBook):
+
 ```mermaid
 flowchart TD
     Q1{What's your main work / use case?}

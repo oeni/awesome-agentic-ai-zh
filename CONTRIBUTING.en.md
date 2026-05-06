@@ -1,6 +1,22 @@
 # Contributing
 
-Thanks for considering a contribution. This is a curated learning roadmap, not an exhaustive catalog. Quality > quantity.
+Thanks for considering a contribution. **This is a curated learning roadmap, not an exhaustive catalog. Quality > quantity.**
+
+This repo is **designed for community-driven improvement** — one person can't keep pace with the AI agent ecosystem alone. The maintainer's quarterly review isn't enough; more eyes are needed.
+
+## 🚪 First-time contribution: 5 easy starting points
+
+Not sure where to start? Pick one you can finish in 30 minutes:
+
+1. **🐛 Report a stale entry**: run `python scripts/refresh-stars.py`, find repos with significant star drift, open an issue saying "this should be removed / updated"
+2. **🔗 Fix one broken link**: hit a 404 reading stage X? Just PR the fix
+3. **✍️ Fill in an entry's "Run it" section**: many entries lack install commands; if you've run it, add them
+4. **🌏 Improve one English companion sentence**: pick any `.en.md`, compare to the zh version, fix one awkward translation
+5. **💬 Add a personal note to an entry**: stuck on `Hello-3`? Add a "Note: xxx" line
+
+None of these require reading the full style-guide first; they merge fast — perfect for a first PR.
+
+> 🧪 **Running the walkthrough / build script / CI workflow for the first time?** See [`.github/TESTING-STATUS.md`](.github/TESTING-STATUS.md) — an **honest disclosure** of what the maintainer has actually executed vs only syntax-checked vs not tested at all. Being the first to hit a bug and open an issue + PR is the highest-value contribution.
 
 ## What We Accept
 

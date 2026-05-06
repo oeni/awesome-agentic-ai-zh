@@ -121,6 +121,10 @@ flowchart LR
 
 走完主幹後從 5 條 specialized branch 選一條繼續。**不確定走哪條？**
 
+![Branch 決策樹](resources/diagrams/branch-decision-tree.png)
+
+> 文字版（screen reader 友善 / mdBook 用）：
+
 ```mermaid
 flowchart TD
     Q1{你的主要工作 / 使用情境是？}

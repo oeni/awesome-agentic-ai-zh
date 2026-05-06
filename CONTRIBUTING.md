@@ -2,7 +2,23 @@
 
 > [English](./CONTRIBUTING.en.md) | **繁體中文**
 
-謝謝你考慮貢獻。這是一份精選的學習路線圖，不是百科目錄。品質 > 數量。
+謝謝你考慮貢獻。**這是一份精選的學習路線圖，不是百科目錄。品質 > 數量。**
+
+這個 repo **本來就是設計給社群一起改良的**——一個人 curate 永遠跟不上 AI agent 生態的變化速度。Maintainer 一個季度跑 1 次 review 不夠，需要更多眼睛看。
+
+## 🚪 第一次貢獻：好上手的 5 個切入點
+
+不確定從哪開始？挑一個你 30 分鐘內能做完的：
+
+1. **🐛 回報過時 entry**：跑 `python scripts/refresh-stars.py` 找星數差距大的 repo，開 issue 說「這個應該移除 / 更新」
+2. **🔗 修一個失效連結**：你看 stage X 時連結 404 了，直接 PR 改
+3. **✍️ 補一個 entry 的 `怎麼跑` section**：很多 entry 沒寫安裝指令，你跑過就補上
+4. **🌏 補英文 companion 沒翻好的句子**：找一個 `.en.md` 跟 zh 對照，你覺得翻得不順的地方改一行
+5. **💬 對某個 entry 加個人筆記**：你跑過 `Hello-3` 卡某個地方，補一句「注意：xxx」
+
+這 5 種都不用先讀完整份 style-guide，merge 速度也快——適合第一次貢獻、累積信心。
+
+> 🧪 **想跑 walkthrough / build script / CI workflow 第一次？** 看 [`.github/TESTING-STATUS.md`](.github/TESTING-STATUS.md)——這份**誠實揭露**哪些 code maintainer 真的跑過、哪些只 syntax check、哪些完全沒測。第一個踩到坑的人開 issue + PR 是 highest-value contribution。
 
 ## 我們接受什麼
 
