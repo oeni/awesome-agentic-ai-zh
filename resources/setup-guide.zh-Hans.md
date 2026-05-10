@@ -33,9 +33,25 @@
 | **Gemini** | 暂无原生 desktop app | （用网页版即可） |
 | **LM Studio** | https://lmstudio.ai | macOS / Windows / Linux — 跑本地 LLM 的桌面 app，零成本但要 GPU/RAM |
 
-### 3️⃣ CLI Agent（terminal，能读写文件、跑指令、操作 git）
+### 3️⃣ IDE 内建 AI（在 code editor 里边写 code 边有 AI 助手）
 
-装在 terminal 的 agent——可以读写你电脑上的文件、执行 shell 指令、改 git。**比网页/桌面 app 强大，但 setup 稍复杂**（需要先有 Node.js 或 Python，看下面 §B / §D）。
+跑在 IDE / code editor 里——你正常写 code，AI 在旁边 suggest、修改、回答问题。**已经有写 code 习惯、想把 IDE 升级成 AI-native 的人这条最顺**。
+
+| 工具 | 下载 | 形态 |
+|---|---|---|
+| **Cursor** | https://cursor.com | 独立 IDE（VS Code fork） |
+| **Windsurf** | https://codeium.com/windsurf | 独立 IDE（Codeium 出） |
+| **Cline** | https://cline.bot | VS Code extension（agentic 风格） |
+| **Continue** | https://continue.dev | VS Code / JetBrains extension（开源） |
+| **Roo Code** | https://github.com/RooCodeInc/Roo-Code | VS Code extension（Cline fork，社群活跃） |
+| **Zed** | https://zed.dev | 独立 editor，内建 AI assistant |
+| **GitHub Copilot** | https://github.com/features/copilot | VS Code / JetBrains 等多 IDE extension |
+
+→ 详细比较 → [`branches/for-developer.zh-Hans.md`](../branches/for-developer.zh-Hans.md)
+
+### 4️⃣ CLI Agent（terminal，能读写文件、跑指令、操作 git）
+
+装在 terminal 的 agent——你下一个 prompt（譬如「重构这个 module」），agent 自己读文件、改文件、跑指令、commit。**比 IDE 模式更自主、可以处理多步骤任务**，但 setup 稍复杂（需要先有 Node.js 或 Python，看下面 §B / §D）。
 
 | CLI Agent | 安装 / 文档 | 主要 LLM |
 |---|---|---|
@@ -50,7 +66,9 @@
 → 想看 7 个 CLI 完整比较 → [`cli-agents-guide.zh-Hans.md`](cli-agents-guide.zh-Hans.md)
 → Claude Code 第一次装的详细步骤 → 本指南 §D
 
-### 4️⃣ API + 自己写 code（最进阶，能 batch、集成任何工具）
+> 💡 **IDE-based 跟 CLI agent 怎么选？** 边写 code 边要 AI 帮忙 → IDE；下单一 prompt 让 agent 自己跑完一整个任务 → CLI。两个可以并用。
+
+### 5️⃣ API + 自己写 code（最进阶，能 batch、集成任何工具）
 
 想自己写 Python script、跑 batch job、把 LLM 接到自己的 app／automation？接下来的 §A-C 就是给你的。
 

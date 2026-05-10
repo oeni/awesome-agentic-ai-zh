@@ -33,9 +33,25 @@ Native apps for macOS / Windows — adds system shortcut, clipboard / screenshot
 | **Gemini** | No native desktop app yet | (use web) |
 | **LM Studio** | https://lmstudio.ai | macOS / Windows / Linux — runs local LLMs as a desktop app; $0 but needs GPU/RAM |
 
-### 3️⃣ CLI agent (terminal, can read/write files, run shell, manage git)
+### 3️⃣ IDE with built-in AI (write code with an AI sidekick)
 
-Agents that live in your terminal — can read/write files on your computer, run shell commands, and edit git. **More powerful than web/desktop, but setup is heavier** (requires Node.js or Python; see §B / §D below).
+Lives inside a code editor — you write code normally, AI suggests / edits / answers questions alongside. **Best fit if you already write code and want an AI-native IDE**.
+
+| Tool | Download | Shape |
+|---|---|---|
+| **Cursor** | https://cursor.com | Standalone IDE (VS Code fork) |
+| **Windsurf** | https://codeium.com/windsurf | Standalone IDE (by Codeium) |
+| **Cline** | https://cline.bot | VS Code extension (agentic style) |
+| **Continue** | https://continue.dev | VS Code / JetBrains extension (open-source) |
+| **Roo Code** | https://github.com/RooCodeInc/Roo-Code | VS Code extension (Cline fork, active community) |
+| **Zed** | https://zed.dev | Standalone editor with built-in AI assistant |
+| **GitHub Copilot** | https://github.com/features/copilot | Multi-IDE extension (VS Code / JetBrains / etc.) |
+
+→ Detailed comparison → [`branches/for-developer.en.md`](../branches/for-developer.en.md)
+
+### 4️⃣ CLI agent (terminal, can read/write files, run shell, manage git)
+
+Agents that live in your terminal — you give one prompt (e.g. "refactor this module"), the agent reads files, edits them, runs commands, commits. **More autonomous than the IDE mode and handles multi-step tasks**, but setup is heavier (requires Node.js or Python; see §B / §D below).
 
 | CLI Agent | Install / Docs | Primary LLM |
 |---|---|---|
@@ -50,7 +66,9 @@ Agents that live in your terminal — can read/write files on your computer, run
 → Full 7-CLI comparison → [`cli-agents-guide.en.md`](cli-agents-guide.en.md)
 → Detailed Claude Code first install → [§D](#d--install-claude-code-for-the-first-time-about-10-minutes-needed-for-stage-5--for-developer) below
 
-### 4️⃣ API + write your own code (most advanced)
+> 💡 **IDE vs CLI — how to pick?** Want AI alongside you while you code → IDE. Want to give one prompt and let the agent run a multi-step task → CLI. Many people use both.
+
+### 5️⃣ API + write your own code (most advanced)
 
 Want to script with Python, run batch jobs, integrate LLMs into your own app/automation? §A-C below are for you.
 
