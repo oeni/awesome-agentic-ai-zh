@@ -14,6 +14,9 @@
 
 > ⚠️ **想用本機 LLM？這個 stage 不是那條路線。** Claude Code 需要 Anthropic API / OAuth，不能直接改接 Ollama 或本機 endpoint。離線、隱私資料或不想用 API 額度時，請看 [`resources/cookbook.md` Recipe 6](../resources/cookbook.md#6-本機-llm--cli-agent-快速-walkthrough)，用 OpenCode / goose / Aider / Hermes 這類支援 BYO LLM 的 CLI agent。
 
+> 📋 **本章組成**：6 個子章（5.1 基礎 / 5.2 MCP / 5.3 Skills / 5.4 Plugins / 5.5 Subagents / 5.6 Harness Internals），每個子章都有「學習目標 → 必修閱讀 → 動手練習 → 精選 Projects」 → 章末 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §5](../resources/glossary.md#5-claude-code-生態)
+
 ## Stack 一覽
 
 由上往下，每一層都建立在底下那一層上：

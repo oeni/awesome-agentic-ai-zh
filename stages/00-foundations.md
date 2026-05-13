@@ -7,6 +7,9 @@
 > 💡 **看不懂某個詞**？翻 [`resources/glossary.md`](../resources/glossary.md) 查 30 秒再回來。Stage 0 還不會碰太多 jargon，但接下來幾 stage 會。
 > 🗺️ **想先看 agent 的全景地圖**（為什麼有的 agent 在 terminal、有的在 Telegram、有的在 Jetson 板子）？→ [`resources/agent-paradigms.md`](../resources/agent-paradigms.md)（5 種 agent 型態，10 min 讀完）
 
+> 📋 **本章組成**：跳過條件檢查 → 環境設定步驟 → 進入 Stage 1（foundation stage，無「學習目標 / 進入條件」框架）  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md`](../resources/glossary.md)（每 stage 用到的術語都收在那裡）
+
 ## 何時可以跳過這個階段
 
 如果你能：

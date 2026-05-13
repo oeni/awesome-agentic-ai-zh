@@ -98,8 +98,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 → **建议流程**：先 C 验逻辑（不花钱）、再 A 本机跑看实际 model 行为、production 阶段（Stage 7）再升 B 看 cloud 品质。
 
-## 推荐 LLM 清单（本机 + cloud、user 视角）
+## 推荐 LLM 清单
 
+> 本机 + cloud、user 视角。  
 > 💡 不是要你全装、是让你看到「练习用哪个」「production 升级到哪个」。**Claude 是 canonical / production 主轴；Ollama 是练习默认**。
 
 ### 本机 LLM（练习默认、用 Ollama）

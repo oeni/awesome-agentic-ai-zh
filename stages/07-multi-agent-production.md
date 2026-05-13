@@ -6,6 +6,9 @@
 
 > 💡 用語密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)。
 
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability）
+
 最後一個階段。你正從「我會做 agent」走向「我能在 production 跑起來，多個 agent 協作、有 eval、有 observability、會 deploy」。
 
 ## 📌 學習目標
@@ -15,6 +18,16 @@
 - 加上 observability（tracing、logging、cost tracking）
 - 用 Anthropic SDK / OpenAI SDK 做 production deploy（進階功能：streaming、prompt caching、batching）
 - 把 agent deploy 到 production（Docker、serverless、monitoring）
+
+## 🚪 進入條件
+
+你應該已經：
+- 完成 Stage 4（用過至少一個 agent framework 跑 multi-agent demo）
+- 完成 Stage 5（懂 MCP / Skills / Plugins / Subagents 各自角色，並用 §5.6 解剖過 harness 內部）
+- 完成 Stage 6（會基本 RAG，能講出 memory pattern 差異）
+- 對 Docker / git / CI 基礎熟悉（production deploy 會用到）
+
+沒到的話 → 補完前面幾個 stage。本 stage 是「組合所有前面學到的東西 → 跑 production」，缺一塊都會卡。
 
 ## 📚 必修閱讀
 

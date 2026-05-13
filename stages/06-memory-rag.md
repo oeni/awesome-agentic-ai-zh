@@ -6,6 +6,9 @@
 
 > 💡 這 stage 用語密度高（**RAG / 向量資料庫 / embedding / chunking / hybrid search / reranking⋯**）→ 不熟先翻 [`resources/glossary.md` §3](../resources/glossary.md#3-memory--retrieval--rag)。
 
+> 📋 **本章組成**：學習目標 → 進入條件 → 必修閱讀 → 動手練習 → 精選 Projects → 自我檢查  
+> 🔑 **關鍵名詞**：見 [`resources/glossary.md` §3](../resources/glossary.md#3-memory--retrieval--rag)（memory / RAG / embedding / chunking / reranking）
+
 不會記住過去互動的 agent 沒什麼用。RAG（Retrieval-Augmented Generation）是目前的標準做法。這一章兩個都會講到。
 
 ## 📌 學習目標
@@ -14,6 +17,15 @@
 - 理解 vector embedding 與相似度搜尋
 - 建一條基本 RAG 流水線（chunk → embed → store → retrieve → generate）
 - 看出 RAG 不該用在哪些地方（以及該用在哪些地方）
+
+## 🚪 進入條件
+
+你應該已經：
+- 完成 Stage 3（會寫 tool use、會呼叫 LLM API、看得懂 ReAct loop）
+- 能跑 Python `pip install` 安裝 SDK（後面練習會用到 `chromadb`、`sentence-transformers` 等）
+- 對 list / dict / generator 等基礎 Python 結構上手
+
+沒到的話 → 回 [Stage 3](03-tool-use-and-hello-agent.md) 或 [Stage 0 §環境設定](00-foundations.md#環境設定)。
 
 ## 📚 必修閱讀
 

@@ -98,8 +98,9 @@ Every exercise ships with all three paths:
 
 → **Recommended flow**: C first (validate logic, no cost), then A (see real model behaviour locally), then B at the Stage 7 production stage if cloud quality is needed.
 
-## Recommended LLM list (local + cloud, user-perspective)
+## Recommended LLM list
 
+> Local + cloud, user-perspective.  
 > 💡 You don't need to install every model — this table shows "which to use for practice" and "which to upgrade to for production". **Claude is the canonical / production reference; Ollama is the practice default.**
 
 ### Local LLMs (practice default, via Ollama)
