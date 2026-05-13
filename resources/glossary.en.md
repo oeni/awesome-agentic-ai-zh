@@ -254,8 +254,44 @@ The toolchain design for wrapping an agent into a production system — permissi
 
 ---
 
+## 7. Agent Interfaces
+
+### Computer Use (screen-level agent)
+
+An agent operates real desktop apps via **screenshot → vision → coordinates → simulated mouse/keyboard** — no API needed, the agent uses the screen like a human. Representative: Anthropic Claude Computer Use (Opus 4.7 / Sonnet 4.6), OpenAI Codex desktop, Google Gemini in Chrome. **Anthropic public beta opened Oct 2024; OSWorld benchmark reached 76.26% (superhuman) by May 2026**.
+
+📍 Full coverage + 4-vendor comparison: [Stage 8 §Computer Use](../stages/08-agent-interfaces.en.md)
+
+### Browser Use (web-level agent)
+
+An agent operates web pages, primarily via **DOM-aware navigation** (direct CSS selector queries) with vision fallback. Closed-source: Atlas / Comet / Dia / Gemini in Chrome. OSS leader: [browser-use](https://github.com/browser-use/browser-use) (★ 86k+).
+
+📍 Full coverage + 5-vendor comparison + OSS frameworks: [Stage 8 §Browser Use](../stages/08-agent-interfaces.en.md)
+
+### Sandbox (code execution isolation)
+
+Runs agent-written code in an isolated environment instead of the host — avoids `rm -rf /`, internet data exfiltration, credential theft. Representatives: E2B (Firecracker microVM), Daytona (container), Modal (GPU sandbox), Vercel, Cloudflare. **OpenAI Agents SDK natively supports these as of April 2026**.
+
+📍 Full 9-row terminology glossary + 7-vendor comparison: [Stage 8 §Code Sandbox](../stages/08-agent-interfaces.en.md)
+
+### microVM (micro Virtual Machine)
+
+A slimmed-down VM with minimal footprint, < 100ms startup, yet still has an **independent kernel** — sits between Docker containers (fast + weak isolation) and full VMs (slow + strong isolation). **Most agent sandboxes choose microVM**. Implementation example: Firecracker (AWS, used by E2B).
+
+📍 Full comparison: [Stage 8 §terminology glossary](../stages/08-agent-interfaces.en.md)
+
+### Firecracker
+
+AWS's open-source microVM, written in Rust, **the underlying technology of AWS Lambda** and E2B sandbox isolation. Provides strong isolation + fast startup.
+
+### gVisor
+
+Google's "user-space kernel" — intercepts syscalls and emulates them itself, no hypervisor required. Sits between containers and VMs.
+
+---
+
 ## Term not here?
 
 - Read the actual stage content: [Stage 5.2 MCP](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation) / [5.3 Skills](../stages/05-claude-code-ecosystem.en.md#53--skills-claude-code-behavior-layer) / [5.4 Plugins](../stages/05-claude-code-ecosystem.en.md#54--plugins--marketplaces)
-- Required reading lists in [Stage 1](../stages/01-llm-basics.en.md) / [Stage 6](../stages/06-memory-rag.en.md) / [Stage 7](../stages/07-multi-agent-production.en.md)
+- Required reading lists in [Stage 1](../stages/01-llm-basics.en.md) / [Stage 6](../stages/06-memory-rag.en.md) / [Stage 7](../stages/07-multi-agent-production.en.md) / [Stage 8](../stages/08-agent-interfaces.en.md)
 - Missing? Open an issue or PR a new entry.
