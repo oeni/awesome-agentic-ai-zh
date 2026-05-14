@@ -440,7 +440,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 **为什么这节在 Stage 3 而不是 Stage 6**：反思在学术（Reflexion paper Shinn 2023、Self-Refine Madaan 2023）跟 production（Cursor / Claude Code）上都被归类在 **planning / reasoning loop** 机制——是 ReAct（练习 3）的 sibling pattern，**不是 memory pattern**。同样是 LLM 自我引导的多轮循环，只是「下一轮要做什么」从「调用 tool」换成「批改自己」。
 
-**进阶版（带 persistent memory 的 Reflexion 完整版）→ [Stage 6 §进阶：Reflexion with Memory](06-memory-rag.md#-进阶带持久记忆的-reflexion-完整版--track-b-选读)**——当反思要跨 session、把过去失败存起来当下一轮 context，这个版本才真的需要 memory 层。
+**进阶版（带 persistent memory 的 Reflexion 完整版）→ [Stage 6 §进阶：带持久记忆的 Reflexion 完整版](06-memory-rag.zh-Hans.md#-进阶带持久记忆的-reflexion-完整版--track-b-选读)**——当反思要跨 session、把过去失败存起来当下一轮 context，这个版本才真的需要 memory 层。
 
 ### 一张对照图
 

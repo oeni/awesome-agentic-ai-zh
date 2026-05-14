@@ -12,15 +12,30 @@
 
 ## 🎯 What is Context Engineering? (Positioning First)
 
-**Context Engineering = The engineering discipline of dynamically assembling prompts across multiple LLM calls**—the intermediate layer of the prompt → context → harness three-layer lineage. The full definition + the three-layer discipline table has been expanded in [Stage 2 §Advanced Prompt → Context → Harness](02-prompt-engineering.md#-advanced-prompt--context--harness-three-layer-engineering), and the top layer connects to [Stage 7 §Harness Engineering](07-multi-agent-production.md#-harness-engineering--the-engineering-discipline-of-production-agent-runtime--core-concept-of-this-stage).
+**One-sentence version**: Context Engineering = deciding **what information to put into the window the LLM can see on each call** (the context window).
 
-> 📺 **Visual Learning**: [Hung-Yi Lee 2025 Lecture 2 — Context Engineering: The Key Technology Behind AI Agents](https://www.youtube.com/watch?v=lVdajtNpaGI) (NTU Introduction to Generative AI & Machine Learning 2025)
+The point is not "how many conversations you opened," but "**what you put into each one**." Karpathy's June 2025 [tweet](https://x.com/karpathy/status/1937902205765607626) puts it best: the delicate art of "**filling the window with exactly the information useful for the next step**."
 
-**This stage focuses on the first two of the 3 problem domains of context engineering**:
+📺 **Visual Learning**: [Hung-Yi Lee 2025 Lecture 2 — Context Engineering: The Key Technology Behind AI Agents](https://www.youtube.com/watch?v=lVdajtNpaGI) (NTU Introduction to Generative AI & Machine Learning 2025)
 
-1.  **Retrieval** — Fetching relevant snippets from external knowledge bases (RAG / vector search / GraphRAG / hybrid search)
-2.  **Memory Management** — How to layer, store, and forget short-term / long-term / episodic / semantic memory
-3.  **Context Window Budget** — Handled in Stage 7 §Harness
+### Where It Sits in the 3-Layer Stack
+
+```
+prompt eng (Stage 2)      → engineer the "string"
+context eng (this stage)  → engineer the "information" inside the window
+harness eng (Stage 7)     → engineer the "runtime" outside the model
+```
+
+See the detailed comparison table in [Stage 2 §Advanced](02-prompt-engineering.md#-advanced-prompt--context--harness-three-layer-engineering).
+
+### This Stage Covers 2 of the 4 Sub-problems (Lance Martin 2025 framework)
+
+| Sub-problem | What it solves | Concrete example | Covered in this stage? |
+|---|---|---|---|
+| **Select** | Which external information to pull into the window | User asks "Which cafe near me is good?" → pull 3 highly rated places from a Yelp DB → put them into the prompt | ✅ Core theme (RAG / vector search / GraphRAG) |
+| **Write** | Which interactions / lessons to write into long-term memory | User said last week "I eat vegan" → write it to memory; when they ask for restaurant suggestions again, retrieve it so you do not recommend meat | ✅ Core theme (memory layers) |
+| **Compress** | How to shrink an overlong conversation | 50 turns exceed 200k tokens → auto-summarize the first 40 turns, keep the last 10 turns verbatim | ⚠️ Partial (here + Stage 7 §Harness `context manager`) |
+| **Isolate** | How to split windows across multiple agents | The supervisor sees the whole picture, workers see only their own slice, and they do not interfere with each other | ❌ Covered in Stage 7 §multi-agent |
 
 ### 4 Commonly Confused Concepts — Clarified in One Table
 

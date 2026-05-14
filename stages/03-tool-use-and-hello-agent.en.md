@@ -440,7 +440,7 @@ messages.append({"role": "tool", "tool_call_id": tc.id,
 
 **Why is this section in Stage 3 and not Stage 6?**: Reflection is classified in both academia (Reflexion paper Shinn 2023, Self-Refine Madaan 2023) and production (Cursor / Claude Code) as a **planning / reasoning loop** mechanism—it's a sibling pattern to ReAct (Exercise 3), **not a memory pattern**. It's the same multi-turn loop of LLM self-guidance, just "what to do next" changes from "call a tool" to "critique myself."
 
-**Advanced version (full version of Reflexion with persistent memory) → [Stage 6 §Advanced: Reflexion with Memory](06-memory-rag.md#-advanced-reflexion-with-persistent-memory-track-b-optional)**—when reflection needs to be cross-session, storing past failures as context for the next round, this version truly needs a memory layer.
+**Advanced version (full version of Reflexion with persistent memory) → [Stage 6 §Advanced: Full Reflexion with Persistent Memory](06-memory-rag.en.md#-advanced-full-reflexion-with-persistent-memory--track-b-elective)**—when reflection needs to be cross-session, storing past failures as context for the next round, this version truly needs a memory layer.
 
 ### A Comparison Chart
 

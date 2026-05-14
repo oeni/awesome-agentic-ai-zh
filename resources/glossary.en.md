@@ -39,7 +39,12 @@ The text you feed an LLM. **Prompt engineering** = designing that text to get go
 
 ### Chain-of-Thought (CoT)
 
-Make the LLM "think before answering" — add "Let's think step by step" so it produces reasoning before the final answer. **Usually improves accuracy** at the cost of more tokens.
+Make the LLM "think before answering" — have it output the reasoning process before the conclusion. **Two common forms**:
+
+- **Few-shot CoT** ([Wei et al. 2022](https://arxiv.org/abs/2201.11903)): put a few examples with reasoning steps into the prompt, and the LLM imitates that style of thinking
+- **Zero-shot CoT** ([Kojima et al. 2022](https://arxiv.org/abs/2205.11916)): add "Let's think step by step" at the end of the prompt to trigger a reasoning trace
+
+**Accuracy usually improves**, at the cost of more tokens. Few-shot usually beats zero-shot.
 
 ---
 
@@ -47,13 +52,24 @@ Make the LLM "think before answering" — add "Let's think step by step" so it p
 
 ### Agent
 
-A system that lets the LLM **call external functions, see results, and decide what to do next**. Core topic of this roadmap. The difference: a pure LLM is Q&A, an agent is "LLM + tools + loop".
+A system centered on an LLM that can **perceive state → make decisions → take actions → observe results** in a **loop**, repeating until the goal is completed. **Three core elements**:
+
+- **LLM** (reasoning / planning / deciding)
+- **Actions** (ways to do things — not limited to function calls. This can include writing and running code (CodeAct), operating a browser (computer use), retrieving from a KB (RAG retrieval), calling an MCP server, or pure planning / task decomposition)
+- **Loop** (the heartbeat — the fundamental difference between an agent and plain LLM Q&A)
+
+The difference is this: plain LLM = Q&A; agent = the three elements + a continuing loop until the goal is reached or the budget runs out. **ReAct is one agent pattern, not the definition of an agent** — CodeAct, computer-use, and planning agents are all agents.
 
 📍 Detail: [Stage 3](../stages/03-tool-use-and-hello-agent.en.md)
 
 ### Tool Use / Function Calling
 
 Lets the LLM call functions you defined (DB lookup, math, browser, …). Instead of plain text, the LLM returns `{"function": "search", "args": {…}}`. Your code executes it and feeds the result back to the LLM.
+
+**The concept is the same; the API schema differs**:
+- **Anthropic "Tool Use"**: uses `input_schema` (JSON Schema directly)
+- **OpenAI / Ollama "Function Calling"**: wraps it in an outer `{"type": "function", "function": {...}}`
+- The token representation the LLM sees differs internally, so when writing a cross-vendor SDK you need to map them correctly
 
 📍 Detail: [Stage 3](../stages/03-tool-use-and-hello-agent.en.md)
 📍 How to write good schemas: [Function Schema Design cheatsheet](schema-design-cheatsheet.en.md)
@@ -72,19 +88,60 @@ Make the LLM output **JSON or another fixed schema** instead of free text. All m
 
 The "LLM → tool → result → LLM" repeated cycle. Termination: LLM says "done" / step budget exhausted / cost cap hit.
 
+### Self-Refine (Basic reflection / no memory)
+
+The agent evaluates the previous round's output and changes the next round's behavior — an "Actor answers → Critic finds issues → Actor reads feedback and answers again" single-session loop. **It does not need a persistent memory layer**; it is purely a reasoning-loop mechanism, a sibling pattern to ReAct. Production agents (Cursor / Cline / Claude Code) run variants of this every day.
+
+Representative paper: [Self-Refine (Madaan 2023)](https://arxiv.org/abs/2303.17651). **For the full Reflexion version** (with episodic memory), see §3 Memory / Retrieval / RAG.
+
+📍 Detail + routing: [Stage 3 §Reflection](../stages/03-tool-use-and-hello-agent.en.md#-reflection-reflexion--self-refine--concept--routing)
+
 ---
 
 ## 3. Memory / Retrieval / RAG
 
+### Memory — Two Orthogonal Axes
+
+"Memory" often gets lumped together, but there are actually **2 orthogonal classification axes**:
+
+- **Time axis**: short-term (current conversation) vs long-term (persistent across sessions)
+- **Content axis** (CoALA framework): **Working** (scratch space) / **Episodic** (past experiences) / **Semantic** (factual knowledge) / **Procedural** (how to do things)
+
+→ The two axes do not conflict: long-term memory can contain **at the same time** episodic memory (what the user said last time), semantic memory (facts from the company's knowledge base), and procedural memory (tool sequences that worked before).
+
+📍 Detail: [Stage 6 §What is Memory + How to Design It](../stages/06-memory-rag.en.md#-what-is-memory--how-to-design-it) + [Stage 6 §CoALA Framework](../stages/06-memory-rag.en.md#advanced-coala-framework--a-4-layer-taxonomy-for-agent-memory)
+
 ### RAG (Retrieval-Augmented Generation)
 
-"Retrieve first, then generate." Flow: user question → embedding search for top-K relevant chunks → stuff those K chunks into the prompt → LLM answers. **Solves the LLM-doesn't-know-your-private-data and stale-knowledge problems.**
+Two-stage architectural pattern:
+
+1. **Ingest** (one-time / periodic): document → chunk → embed → store in a vector store (build a retrievable KB)
+2. **Query** (every user question): embed the question → semantic search (or hybrid + BM25) → top-K chunks → put them into the prompt → LLM answers
+
+**Solves the problem that the LLM does not know your private / changing / stale data**. Retrieval is **not limited to dense embeddings** — the production default is hybrid (dense + BM25) + reranker.
+
+📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
+📍 Paper: [Lewis et al. 2020](https://arxiv.org/abs/2005.11401)
+
+### Reflexion (Full reflection / with episodic memory)
+
+Unlike Self-Refine (§2 Agents), Reflexion **requires a persistent episodic memory store** — after each trial, the agent **writes a reflection summary into memory**, then retrieves it into the prompt at the start of the next trial. **Accumulating lessons across trials** is the essence of Reflexion (not a single-session loop).
+
+It is placed in §3 instead of §2 because it is **fundamentally a memory pattern** — the episodic memory store is core, not optional.
+
+Representative paper: [Reflexion (Shinn 2023)](https://arxiv.org/abs/2303.11366).
+
+📍 Detail: [Stage 6 §Advanced: Full Reflexion with Persistent Memory](../stages/06-memory-rag.en.md#-advanced-full-reflexion-with-persistent-memory--track-b-elective)
+
+### Embedding
+
+Turn text / images into N-dimensional **vectors** so that things with similar meanings are close together. This roadmap defaults to **dense embeddings** (dense vectors produced by sentence-transformers / OpenAI ada-002, etc.); there are also **sparse embeddings** (BM25 / SPLADE, etc., based on lexical token matching) — production RAG often uses both together for hybrid search.
 
 📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
 
-### Vector DB / Embedding
+### Vector DB
 
-Convert text (or images) into a vector of numbers so that **semantically similar things sit close** in vector space. Vector DBs (Pinecone, Chroma, Qdrant, etc.) store and efficiently query these vectors. Core RAG component.
+The storage layer for storing + efficiently querying embeddings. **The main query type = approximate nearest-neighbor (ANN)** — the whole point of a vector DB is that ANN is hundreds of times faster than brute-force cosine scanning. Examples: Pinecone / Chroma / Qdrant / Weaviate / pgvector.
 
 📍 Detail: [Stage 6](../stages/06-memory-rag.en.md)
 
@@ -138,13 +195,22 @@ Google's protocol for agent ↔ agent communication. Sibling to MCP, but for age
 
 ### MCP (Model Context Protocol)
 
-Anthropic's open protocol that lets any LLM host (Claude Code, Cursor, your own agent) call any external tool server through one interface. Think "**USB for LLMs**".
+Anthropic's open protocol, introduced in 2024, that lets any LLM host (Claude Code, Cursor, your own agent) connect to external tool servers through one interface. Think "**USB for LLMs**".
+
+**Technically it standardizes 3 primitives**:
+- **Tools**: functions an LLM can call (read DB / search web / send email…)
+- **Resources**: data an LLM can read (file contents, API responses, DB rows…)
+- **Prompts**: reusable prompt templates (triggered inside the host with `/`)
+
+**Architecture**: server / client pattern — the tool server runs locally or remotely, and the LLM host connects as the client. The server exposes those primitives over one of three transports: stdio / SSE / HTTP.
 
 📍 Detail: [Stage 5.2](../stages/05-claude-code-ecosystem.en.md#52--mcp-model-context-protocol-foundation)
 
 ### Skills / SKILL.md
 
-Claude Code's "behavior bundles". A Skill is a folder with a `SKILL.md` that says "in what context, do what, can call which tools". Claude Code auto-loads matching skills based on the situation.
+Claude Code's "behavior bundles". A Skill = a folder containing `SKILL.md` (describing "what to do in what situations, and which tools can be called") + optional reference files / scripts.
+
+**Trigger mechanism** (many people do not know this, but it matters): before Claude Code handles each message, it scans the **frontmatter `description` field** of every available skill — if it matches the current situation, the corresponding SKILL.md is auto-loaded. **So the quality of the description directly determines whether the skill gets triggered.** In practice, starting with "Use when ..." works best.
 
 📍 Detail: [Stage 5.3](../stages/05-claude-code-ecosystem.en.md#53--skills-claude-code-behavior-layer)
 
@@ -164,7 +230,19 @@ A markdown file at project root that Claude Code reads on every launch. Project-
 
 ### Hooks
 
-Scripts that run before/after Claude Code actions (pre-tool-use, post-tool-use, user-message-received, etc.). Use cases: auto-commit on edits, logging, behavior gating.
+Scripts that run before or after specific Claude Code events. **The official system supports 7 event types**:
+
+| Hook | Trigger time | Typical use |
+|---|---|---|
+| `PreToolUse` | **Before** a tool call | Block dangerous operations (`rm -rf`, destructive ops), rewrite parameters |
+| `PostToolUse` | **After** a tool call | Logging, auto-format files that were just written |
+| `UserPromptSubmit` | When the user submits a message | Add context (git status / current time) |
+| `Notification` | When Claude Code emits a notification | Desktop toast / Slack ping |
+| `Stop` | When the session ends | Auto-commit / cleanup |
+| `PreCompact` | Before auto-compact | Promote important decisions into memory |
+| `PostCompact` | After compact | Check what context got compressed |
+
+Configuration: add a `"hooks"` block in `.claude/settings.json` and point it at your script path.
 
 ### Subagent
 

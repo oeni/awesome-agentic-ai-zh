@@ -12,15 +12,30 @@
 
 ## 🎯 Context Engineering 是什么（先定位）
 
-**Context Engineering = 跨多次 LLM 调用如何动态组装 prompt 的工程学科**—prompt → context → harness 三层 lineage 的中间层。完整定义 + 三层 discipline 表已在 [Stage 2 §进阶 prompt → context → harness](02-prompt-engineering.md#-进阶prompt--context--harness-三层-engineering) 展开、最上层接 [Stage 7 §Harness Engineering](07-multi-agent-production.md#-harness-engineering--production-agent-runtime-的工程学--本-stage-核心概念)。
+**一句话**：Context Engineering = 决定**每次调用 LLM 时，要把哪些信息塞进它看得到的窗口（context window）**。
 
-> 📺 **视觉学习**: [李宏毅 2025 第 2 讲 — Context Engineering：AI Agent 背后的关键技术](https://www.youtube.com/watch?v=lVdajtNpaGI)（NTU 生成式人工智能与机器学习导论 2025）
+重点不是“开了几次对话”，而是“**每次对话里塞了什么**”。Karpathy 2025-06 的[原推文](https://x.com/karpathy/status/1937902205765607626)说得最准确：这是一门把“**刚好对下一步有用的信息填进窗口**”的精细艺术。
 
-**本阶段聚焦 context engineering 的 3 个问题域中的前两个**：
+📺 **视觉学习**: [李宏毅 2025 第 2 讲 — Context Engineering：AI Agent 背后的关键技术](https://www.youtube.com/watch?v=lVdajtNpaGI)（NTU 生成式人工智能与机器学习导论 2025）
 
-1.  **Retrieval** — 从外部知识库捞取相关片段（RAG / vector search / GraphRAG / hybrid search）
-2.  **Memory 管理** — short-term / long-term / episodic / semantic memory 如何分层、如何存储、如何遗忘
-3.  **Context window 预算** — 由 Stage 7 §Harness 处理
+### 在三层 stack 里的位置
+
+```
+prompt eng（Stage 2）       → 工程那段“字符串”
+context eng（本 stage）     → 工程窗口里的“信息”
+harness eng（Stage 7）      → 工程模型外面的“runtime”
+```
+
+详细对照表见 [Stage 2 §进阶](02-prompt-engineering.md#-进阶prompt--context--harness-三层-engineering)。
+
+### 本 stage 处理 4 个 sub-problem 中的 2 个（Lance Martin 2025 framework）
+
+| Sub-problem | 解决什么 | 具体例子 | 本 stage cover？ |
+|---|---|---|---|
+| **Select** | 要把**哪些**外部信息捞进窗口 | user 问“我家附近哪间 cafe 好吃”→ 从 Yelp DB 捞 3 家评分高的 → 塞进 prompt | ✅ 主轴（RAG / vector search / GraphRAG） |
+| **Write** | 要把**哪些**互动 / 教训写进长期记忆 | user 上周说“我吃纯素”→ 写进 memory；这周又问餐厅推荐时，retrieve 出来避免推肉食 | ✅ 主轴（memory layers） |
+| **Compress** | 对话太长怎么压 | 50 轮对话超过 200k token → 自动摘要前 40 轮、保留最后 10 轮原文 | ⚠️ 部分（这里 + Stage 7 §Harness `context manager`） |
+| **Isolate** | 多 agent 各自窗口怎么分 | supervisor 看全局、worker 只看自己那段、彼此不串扰 | ❌ Stage 7 §multi-agent 处理 |
 
 ### 4 个常被混淆的概念 — 一张表分清楚
 

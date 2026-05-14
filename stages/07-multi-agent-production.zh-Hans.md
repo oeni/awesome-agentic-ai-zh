@@ -7,7 +7,7 @@
 > 💡 用语密度高（multi-agent / handoff / eval / observability / guardrails⋯）→ 翻 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)。
 
 > 📋 **本章组成**：〔Multi-Agent · 进阶应用 是什么（先定位）+ Discipline lineage + 何时用 multi-agent〕→ 学习目标 → 进入条件 → 必修阅读 → Harness Engineering（**8 个核心元件含 Cost/Latency**）→ 动手练习（含练习 6 Cost Optimization）→ **Agent Benchmark Landscape + Berkeley Reward-Hacking 警告（2026）** → 常用工具推荐 → 精选 Projects → 自我检查
-> 🔑 **关键名词**：见 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness）
+> 🔑 **关键名词**：见 [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent)（multi-agent / orchestration / handoff / eval / observability / harness（LLM 外面的 runtime / scaffolding））
 
 最后一个阶段。你正从“我会做 agent”走向“我能让 agent **真的给用户稳定用**——多个 agent 协作、有 eval、有 observability、会 deploy”。**“进阶应用 / production” ≠ enterprise scale**——只要 agent 能稳定产出 + 给别人跑、就算进入这 stage 范围。
 
@@ -35,7 +35,7 @@
 **本 stage 3 个 problem domain**：
 
 1.  **Multi-agent 协作** — debate / planner-executor / peer review / handoff / supervisor-worker pattern
-2.  **Harness Engineering** — agent loop / tool registry / context manager / safety / retry / telemetry / eval / cost（8 个 component、下面详述）
+2.  **Harness Engineering** — agent loop / tool registry（agent 可调用工具的清单 + 接口定义） / context manager / safety / retry / telemetry / eval / cost（8 个 component、下面详述）
 3.  **进阶应用**（production-grade）— eval harness / observability / cost & latency 优化 / deploy
 
 **跟 Stage 5 的分工**（避免混淆）：
@@ -47,7 +47,7 @@
 
 ### ⚠ 但你真的需要 multi-agent 吗？
 
-**Multi-agent 不是默认、是 last resort**。**Anthropic 跟 Cognition 两家 frontier lab 在 2024-2025 都明白写过：90% 用例其实不该用 multi-agent**——硬上会付 **3-10× token、debug 困难、context fragmentation 严重**。
+**Multi-agent 不是默认、是 last resort**。**Anthropic 跟 Cognition 两家 frontier lab 在 2024-2025 都明白写过：90% 用例其实不该用 multi-agent**——硬上会付 **3-10× token、debug 困难、context fragmentation（context 被切散在多个 agent、彼此看不到全貌）严重**。
 
 | 立场 | 来源 | 核心论点 |
 |---|---|---|
@@ -94,15 +94,23 @@
 
 ### Discipline 定位：prompt → context → harness 三层
 
-把 LLM 用成 production agent 系统、有 3 层**工程学科**（discipline）。每一层 cover 不同问题、后一层假设前一层已经没问题：
+把 LLM 变成可用 agent，有 3 层**工程学科**。**对应 stack 的不同位置**——不是“call 一次 vs 多次”的差别。
 
-| Discipline | 解决什么问题 | 主要技巧 | 在哪学 |
-|---|---|---|---|
-| **1. Prompt Engineering** | 单次 LLM call 怎么问才会准 | system prompt / few-shot / CoT / structured output | **[Stage 2](02-prompt-engineering.md)** |
-| **2. Context Engineering** | 跨多次 call 怎么动态组装 prompt | RAG retrieval / memory / context window 管理 / tool description 排序 | **[Stage 6](06-memory-rag.md)** + Stage 2 §进阶 |
-| **3. Harness Engineering**<br>（**本节**） | 把多个 LLM call 包成 production agent runtime | agent loop / retry / safety / telemetry / observability / cost control | **本 stage** |
+> 💡 Simon Willison 2025：“coding agent = LLM + harness”；harness = 所有**不是 model 本身**的代码。OpenAI 2025 把 "Harness Engineering" 当成官方词。
 
-→ **2025 后段“harness engineering”才正式成为业界共识词**（Anthropic / Cursor / Cognition 等 AI coding tool 团队用得最多）——因为前两层已经被 prompt eng / context eng 解决得差不多了、production agent 的剩余复杂度都在 runtime 工程。
+| Discipline | 工程的对象 | 在哪学 |
+|---|---|---|
+| **1. Prompt Engineering** | 送进 LLM 的**字符串**（system prompt / few-shot / 格式） | [Stage 2](02-prompt-engineering.md) |
+| **2. Context Engineering** | 窗口里装的**信息**（RAG / memory / tool defs / history 组装） | [Stage 6](06-memory-rag.md) |
+| **3. Harness Engineering**<br>（**本节**） | LLM 模型**外面的 runtime**（loop / retry / sandbox / observability / deploy） | 本 stage |
+
+**怎么分辨自己在做哪一层？问**：
+
+1. 我改的是**字符串本身**吗？→ Prompt engineering
+2. 我改的是**塞进窗口的信息**吗？→ Context engineering
+3. 我改的是**调用模型的外围代码**吗？→ Harness engineering
+
+→ 三层**正交**：1 次 call 的 RAG app 也在做 context engineering（重点是怎么组窗口）；50 次 call 但没做 retrieval 的 chatbot，仍然只是在做 prompt engineering。
 
 ### Harness 的 8 个核心元件
 

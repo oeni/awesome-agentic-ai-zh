@@ -7,7 +7,7 @@
 > 💡 High density of terminology (multi-agent / handoff / eval / observability / guardrails...) → Refer to [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent).
 
 > 📋 **Chapter Composition**: [What is Multi-Agent · Advanced Applications (Positioning) + Discipline Lineage + When to use multi-agent] → Learning Objectives → Entry Conditions → Required Reading → Harness Engineering (**8 core components including Cost/Latency**) → Hands-on Exercises (including Exercise 6 Cost Optimization) → **Agent Benchmark Landscape + Berkeley Reward-Hacking Warning (2026)** → Recommended Tools → Featured Projects → Self-Check
-> 🔑 **Key Terms**: See [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness)
+> 🔑 **Key Terms**: See [`resources/glossary.md` §4 + §6](../resources/glossary.md#4-multi-agent) (multi-agent / orchestration / handoff / eval / observability / harness (the runtime / scaffolding around the LLM))
 
 This is the final stage. You are transitioning from "I can build an agent" to "I can make an agent **truly stable for others to use**"—with multiple agents collaborating, with eval, with observability, and ready for deployment. **"Advanced Applications / production" ≠ enterprise scale**—as long as an agent can produce stable output and be run by others, it falls within the scope of this stage.
 
@@ -35,7 +35,7 @@ This is the final stage. You are transitioning from "I can build an agent" to "I
 **This stage's 3 problem domains**:
 
 1.  **Multi-agent collaboration** — debate / planner-executor / peer review / handoff / supervisor-worker patterns
-2.  **Harness Engineering** — agent loop / tool registry / context manager / safety / retry / telemetry / eval / cost (8 components, detailed below)
+2.  **Harness Engineering** — agent loop / tool registry (the list of tools an agent can call + their interfaces) / context manager / safety / retry / telemetry / eval / cost (8 components, detailed below)
 3.  **Advanced applications** (production-grade) — eval harness / observability / cost & latency optimization / deploy
 
 **Division of labor with Stage 5** (to avoid confusion):
@@ -47,7 +47,7 @@ This is the final stage. You are transitioning from "I can build an agent" to "I
 
 ### ⚠ But do you really need multi-agent?
 
-**Multi-agent is not the default; it's a last resort.** **Both Anthropic and Cognition, two frontier labs, stated clearly in 2024-2025: 90% of use cases should not use multi-agent**—forcing it results in **3-10× token costs, difficult debugging, and severe context fragmentation**.
+**Multi-agent is not the default; it's a last resort.** **Both Anthropic and Cognition, two frontier labs, stated clearly in 2024-2025: 90% of use cases should not use multi-agent**—forcing it results in **3-10× token costs, difficult debugging, and severe context fragmentation (context gets split across multiple agents, so no one sees the full picture)**.
 
 | Stance | Source | Core Argument |
 |---|---|---|
@@ -94,15 +94,23 @@ If not, go back and complete the previous stages. This stage is about "combining
 
 ### Discipline Positioning: The Three Layers of Prompt → Context → Harness
 
-To use LLMs as a production agent system, there are 3 layers of **engineering disciplines**. Each layer covers different problems, and each subsequent layer assumes the previous one is already solved:
+To turn an LLM into a usable agent, there are 3 **engineering disciplines**. **They map to different places in the stack**—not "one call vs. many calls."
 
-| Discipline | What Problem it Solves | Key Techniques | Where to Learn |
-|---|---|---|---|
-| **1. Prompt Engineering** | How to make a single LLM call accurate | system prompt / few-shot / CoT / structured output | **[Stage 2](02-prompt-engineering.md)** |
-| **2. Context Engineering** | How to dynamically assemble prompts across multiple calls | RAG retrieval / memory / context window management / tool description sorting | **[Stage 6](06-memory-rag.md)** + Stage 2 §Advanced |
-| **3. Harness Engineering**<br>(**This section**) | How to wrap multiple LLM calls into a production agent runtime | agent loop / retry / safety / telemetry / observability / cost control | **This stage** |
+> 💡 Simon Willison 2025: "coding agent = LLM + harness"; a harness is all the code **that is not the model itself**. OpenAI used "Harness Engineering" as an official term in 2025.
 
-→ **"harness engineering" only formally became an industry consensus term in late 2025** (used most by AI coding tool teams like Anthropic / Cursor / Cognition)—because the first two layers were mostly solved by prompt eng / context eng, the remaining complexity of production agents lies in runtime engineering.
+| Discipline | What you are engineering | Where to learn it |
+|---|---|---|
+| **1. Prompt Engineering** | The **string** sent into the LLM (system prompt / few-shot / format) | [Stage 2](02-prompt-engineering.md) |
+| **2. Context Engineering** | The **information** placed inside the window (RAG / memory / tool defs / history assembly) | [Stage 6](06-memory-rag.md) |
+| **3. Harness Engineering**<br>(**This section**) | The **runtime outside the LLM** (loop / retry / sandbox / observability / deploy) | This stage |
+
+**How do you tell which layer you are working on? Ask**:
+
+1. Am I changing the **string itself**? → Prompt engineering
+2. Am I changing the **information put into the window**? → Context engineering
+3. Am I changing the **code around the model call**? → Harness engineering
+
+→ The 3 layers are **orthogonal**: a one-call RAG app is still doing context engineering (the point is how you assemble the window); a 50-call chatbot with no retrieval is still only doing prompt engineering.
 
 ### The 8 Core Components of a Harness
 
