@@ -6,6 +6,46 @@
 >
 > Each entry gives **the smallest usable definition** (30-80 words + which stage covers it in depth) — not Wikipedia.
 
+## 🌐 Unified terminology table (English ↔ Chinese, consistent across stages)
+
+This table is the project's **enforced naming convention** — every stage uses the same Chinese readability label for each English term. If you see drift inside a stage, please file an issue.
+
+| English term | Chinese readability label | Primary stage |
+|---|---|---|
+| Prompt Engineering | Prompt 設計 / Prompt 设计 | Stage 2 |
+| Context Engineering | 上下文管理 | Stage 6 |
+| Harness Engineering | Agent 執行系統設計 / Agent 执行系统设计 | Stage 7 |
+| Tool Use | 工具使用 | Stage 3 |
+| Function Calling | 函式 / 函数 / 工具呼叫 | Stage 3 |
+| Structured Output | 結構化輸出 / 结构化输出 | Stage 3 |
+| Agent Loop | Agent 執行迴圈 / Agent 执行循环 | Stage 3 |
+| Framework | 框架 | Stage 4 |
+| Orchestration | 協調與編排 / 协调与编排 | Stage 4 / 7 |
+| Handoff | 任務交接 / 任务交接 | Stage 7 |
+| Supervisor / Worker | 協調者 / 執行者 (协调者 / 执行者) | Stage 7 |
+| Runtime | 執行層 / 执行层 | Stage 7 |
+| Scaffolding | 支撐架構 / 支撑架构 | Stage 7 |
+| Observability | 觀測與紀錄 / 观测与记录 | Stage 7 |
+| Telemetry | 運行紀錄 / 运行记录 | Stage 7 |
+| Eval | 效果評估 / 效果评估 | Stage 7 |
+| Evaluation Harness | 評估框架 / 评估框架 | Stage 7 |
+| Production | 可穩定使用 / 上線化 (可稳定使用 / 上线化) | Stage 7 |
+| Production-grade | 可長期穩定使用的 / 可长期稳定使用的 | Stage 7 |
+| Deployment | 部署 | Stage 7 |
+| Cost Tracking | 成本追蹤 / 成本追踪 | Stage 7 |
+| Latency | 延遲 / 等待時間 (延迟 / 等待时间) | Stage 7 |
+| Vector DB | 向量資料庫 / 向量数据库 | Stage 6 |
+| Retrieval | 檢索 / 检索 | Stage 6 |
+| Reranking | 重排序 | Stage 6 |
+| Long Context | 長上下文 / 长上下文 | Stage 6 |
+| Fine-tuning | 模型微調 / 模型微调 | Stage 6 |
+| Agent Interfaces | Agent 操作介面 / Agent 操作界面 | Stage 8 |
+| Code Sandbox | 隔離程式執行環境 / 隔离程序执行环境 | Stage 8 |
+| Cold Start | 啟動延遲 / 启动延迟 | Stage 8 |
+| Reward Hacking | 鑽評分漏洞 / 钻评分漏洞 | Stage 7 / 8 |
+
+→ For full definitions, see the sections below.
+
 ---
 
 ## 1. Basic concepts

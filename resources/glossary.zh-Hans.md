@@ -6,6 +6,46 @@
 >
 > 每个词**只给最小可用的解释**（30-80 字 + 在哪一个 stage 讲细的）——不是维基百科。
 
+## 🌐 统一词汇对照表（中英对照、跨 stage 一致）
+
+本表是项目内**强制统一的命名约定**——所有 stage 用同一个中文理解名。如果你在 stage 内看到不一致，请报 issue。
+
+| 英文术语 | 中文理解名 | 主要 stage |
+|---|---|---|
+| Prompt Engineering | Prompt 设计 | Stage 2 |
+| Context Engineering | 上下文管理 | Stage 6 |
+| Harness Engineering | Agent 执行系统设计 | Stage 7 |
+| Tool Use | 工具使用 | Stage 3 |
+| Function Calling | 函数 / 工具呼叫 | Stage 3 |
+| Structured Output | 结构化输出 | Stage 3 |
+| Agent Loop | Agent 执行循环 | Stage 3 |
+| Framework | 框架 | Stage 4 |
+| Orchestration | 协调与编排 | Stage 4 / 7 |
+| Handoff | 任务交接 | Stage 7 |
+| Supervisor / Worker | 协调者 / 执行者 | Stage 7 |
+| Runtime | 执行层 | Stage 7 |
+| Scaffolding | 支撑架构 | Stage 7 |
+| Observability | 观测与记录 | Stage 7 |
+| Telemetry | 运行记录 | Stage 7 |
+| Eval | 效果评估 | Stage 7 |
+| Evaluation Harness | 评估框架 | Stage 7 |
+| Production | 可稳定使用 / 上线化 | Stage 7 |
+| Production-grade | 可长期稳定使用的 | Stage 7 |
+| Deployment | 部署 | Stage 7 |
+| Cost Tracking | 成本追踪 | Stage 7 |
+| Latency | 延迟 / 等待时间 | Stage 7 |
+| Vector DB | 向量数据库 | Stage 6 |
+| Retrieval | 检索 | Stage 6 |
+| Reranking | 重排序 | Stage 6 |
+| Long Context | 长上下文 | Stage 6 |
+| Fine-tuning | 模型微调 | Stage 6 |
+| Agent Interfaces | Agent 操作界面 | Stage 8 |
+| Code Sandbox | 隔离程序执行环境 | Stage 8 |
+| Cold Start | 启动延迟 | Stage 8 |
+| Reward Hacking | 钻评分漏洞 | Stage 7 / 8 |
+
+→ 详细定义请看下面各区块。
+
 ---
 
 ## 1. 基本概念
