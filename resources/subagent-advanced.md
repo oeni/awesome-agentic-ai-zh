@@ -95,6 +95,7 @@ description: Use PROACTIVELY before commits touching auth or payment code. Check
 > 2. 列 2-4 個**具體會做的事**（不是「helpful」「comprehensive」這種空詞）
 > 3. 講**回傳格式**（讓主 session 知道接到的會是什麼形狀）
 > 4. **2-3 句就好**——精準 > 完整
+> 5. **Description 是語意比對、不是精確關鍵字比對**——關鍵字有幫助、但觸發條件要寫清楚
 >
 > 💡 **語言選擇**：description 欄位**建議用英文**——Claude 用英文訓練、英文 trigger keyword（PROACTIVELY 等）效果最穩定。
 
