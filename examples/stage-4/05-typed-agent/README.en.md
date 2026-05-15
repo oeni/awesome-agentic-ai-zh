@@ -125,7 +125,7 @@ When Pydantic AI sees a ValidationError, it appends the error message back into 
 ## Want smarter answers?
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py    # highest one-shot rate
+MODEL=claude-sonnet-4-6 python starter_anthropic.py    # highest one-shot rate
 MODEL=qwen2.5:7b python starter.py                      # larger local model
 ```
 

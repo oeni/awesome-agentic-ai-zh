@@ -16,7 +16,7 @@
 | 詞 | 中文 | 一句話 |
 |---|---|---|
 | **token** | 詞元 | 模型計算文字長度與費用的基本單位（中文 1 字 ≈ 1.5-2 token） |
-| **context window** | 上下文視窗 | 模型一次能看到多少 token（Claude 200k / GPT-4o 128k / Gemini 2M）|
+| **context window** | 上下文視窗 | 模型一次能看到多少 token（Claude 1M / GPT ~400k / Gemini 2M）|
 | **temperature** | 隨機程度參數 | 控制回答穩定或發散（0 = 最穩定、1 = 創意；分類任務用 0.0-0.3、創作用 0.7-1.0）|
 
 → 這 3 個詞貫穿後續所有 stage。Stage 1 的目標就是讓你用 API 跑出來、親手摸到它們如何影響輸出。
@@ -44,7 +44,7 @@
 
 | Model 家族 | 旗艦（2026-05）| Context | 強項 | 適合任務 | 官方 docs |
 |---|---|---|---|---|---|
-| **Claude**（Anthropic）| Opus 4.7 / Sonnet 4.6 / Haiku 4.5 | 200k（Sonnet 4.6 ent 1M）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
+| **Claude**（Anthropic）| Opus 4.7 / Sonnet 4.6 / Haiku 4.5 | 1M（Haiku 4.5 為 200k）| long-form / coding / agent / safety alignment | 寫 paper / code review / agent runtime | [platform.claude.com/docs](https://platform.claude.com/docs/en/about-claude/models/overview) |
 | **GPT**（OpenAI）| GPT-5.5 / GPT-5 / o-series | ~400k | 通用 / function calling / ecosystem 最廣 | 廣度查詢 / function-call 框架 / GPTs 生態 | [platform.openai.com/docs/models](https://platform.openai.com/docs/models) |
 | **Gemini**（Google）| 3.1 Pro / Flash | **2M**（Pro 系列、Flash 為 1M）| 長 context / 原生 multimodal / Google 整合 | PDF / 影音 / 大量文件 / Google Workspace | [ai.google.dev](https://ai.google.dev/gemini-api/docs/models/gemini) |
 

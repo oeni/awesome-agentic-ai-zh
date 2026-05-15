@@ -90,7 +90,7 @@ python test.py
 预设用 `claude-haiku-4-5`（最便宜）。改成 sonnet：
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter.py
+MODEL=claude-sonnet-4-6 python starter.py
 ```
 
 或在 `starter.py` 改 `MODEL = ...` 那行。

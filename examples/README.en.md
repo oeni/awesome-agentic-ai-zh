@@ -121,8 +121,8 @@ Install: `ollama pull <model>` + `ollama serve`. Hardware tuning details: [resou
 | Model | $/1M input | $/1M output | Context | Primary use |
 |---|---|---|---|---|
 | **`claude-haiku-4-5`** ⭐ | $1 | $5 | 200k | Cheapest; fine for Stage 1-7 cloud-quality comparisons |
-| **`claude-sonnet-4-5`** ⭐ | $3 | $15 | 200k | **Production default**; Stage 5+ agent development |
-| `claude-opus-4-5` | $15 | $75 | 200k | Highest quality; complex reasoning / long-context refactors |
+| **`claude-sonnet-4-6`** ⭐ | $3 | $15 | 1M | **Production default**; Stage 5+ agent development |
+| `claude-opus-4-7` | $5 | $25 | 1M | Highest quality; complex reasoning / long-context refactors |
 
 Subscription alternative: Claude Pro $20/month (includes Sonnet usage); Claude Max $100/month (includes Opus). Details: [resources/cli-agents-guide.en.md](../resources/cli-agents-guide.en.md).
 

@@ -75,7 +75,7 @@ The most common failure in multi-tool design is descriptions that read like docu
 Default is `claude-haiku-4-5` (cheapest). Try Sonnet:
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py
+MODEL=claude-sonnet-4-6 python starter_anthropic.py
 ```
 
 Or on the Ollama path, swap to `qwen2.5:7b` (bigger, more stable, but slower):

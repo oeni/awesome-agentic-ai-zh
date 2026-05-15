@@ -76,7 +76,7 @@ from anthropic import Anthropic
 client = Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-5",
+    model="claude-sonnet-4-6",
     max_tokens=500,
     messages=[{
         "role": "user",
@@ -118,7 +118,7 @@ Format requirements:
 PAPER_TEXT = """[Paste paper abstract here]"""
 
 response = client.messages.create(
-    model="claude-sonnet-4-5",
+    model="claude-sonnet-4-6",
     max_tokens=800,
     system=SYSTEM_PROMPT,
     messages=[{"role": "user", "content": PAPER_TEXT}]
@@ -168,7 +168,7 @@ def run_agent(user_query: str):
     
     while True:
         response = client.messages.create(
-            model="claude-sonnet-4-5",
+            model="claude-sonnet-4-6",
             max_tokens=2000,
             tools=TOOLS,
             messages=messages,
@@ -231,7 +231,7 @@ class State(TypedDict):
     messages: Annotated[list, add_messages]
     revisions: int  # bound the loop
 
-llm = ChatAnthropic(model="claude-sonnet-4-5")
+llm = ChatAnthropic(model="claude-sonnet-4-6")
 react_agent = create_react_agent(llm, tools=[fetch_arxiv])
 
 MAX_REVISIONS = 2
@@ -353,7 +353,7 @@ import chromadb
 from chromadb.utils import embedding_functions
 from langchain_anthropic import ChatAnthropic
 
-llm = ChatAnthropic(model="claude-sonnet-4-5")
+llm = ChatAnthropic(model="claude-sonnet-4-6")
 
 # Local vector DB
 chroma = chromadb.PersistentClient(path="./paper_memory")

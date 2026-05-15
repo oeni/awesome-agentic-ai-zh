@@ -81,7 +81,7 @@ Returning just `"failed"` leaves the model with nothing to act on. Adding `retry
 Default is `claude-haiku-4-5` (cheapest). Try Sonnet:
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py
+MODEL=claude-sonnet-4-6 python starter_anthropic.py
 ```
 
 Or on the Ollama path, swap to a larger model:

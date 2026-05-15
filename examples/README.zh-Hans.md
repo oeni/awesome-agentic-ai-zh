@@ -121,8 +121,8 @@ if hasattr(sys.stdout, "reconfigure"):
 | Model | 每 1M input | 每 1M output | Context | 主用途 |
 |---|---|---|---|---|
 | **`claude-haiku-4-5`** ⭐ | $1 | $5 | 200k | 最便宜、Stage 1-7 练习 cloud 对照都 OK |
-| **`claude-sonnet-4-5`** ⭐ | $3 | $15 | 200k | **production 默认**、Stage 5+ agent 开发 |
-| `claude-opus-4-5` | $15 | $75 | 200k | 最高品质、复杂推理 / 长 context refactor |
+| **`claude-sonnet-4-6`** ⭐ | $3 | $15 | 1M | **production 默认**、Stage 5+ agent 开发 |
+| `claude-opus-4-7` | $5 | $25 | 1M | 最高品质、复杂推理 / 长 context refactor |
 
 订阅替代：Claude Pro $20/月含 Sonnet 用量、Claude Max $100/月含 Opus。详细看 [resources/cli-agents-guide.zh-Hans.md](../resources/cli-agents-guide.zh-Hans.md)。
 

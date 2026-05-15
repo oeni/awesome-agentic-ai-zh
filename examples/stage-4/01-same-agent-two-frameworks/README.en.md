@@ -98,7 +98,7 @@ crew.kickoff()
 ## Want smarter answers?
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py    # more stable
+MODEL=claude-sonnet-4-6 python starter_anthropic.py    # more stable
 MODEL=qwen2.5:7b python starter.py                      # larger local model
 ```
 

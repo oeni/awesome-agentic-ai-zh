@@ -122,7 +122,7 @@ Crew(..., process=Process.hierarchical) # 多個 manager+worker、需設 manager
 ## 想看更聰明的答案？
 
 ```bash
-MODEL=anthropic/claude-sonnet-4-5 python starter_anthropic.py # 高品質
+MODEL=anthropic/claude-sonnet-4-6 python starter_anthropic.py # 高品質
 MODEL=ollama/qwen2.5:7b python starter.py # 較大本機 model
 ```
 

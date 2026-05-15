@@ -98,7 +98,7 @@ crew.kickoff()
 ## 想看更聪明的答案？
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py    # 更稳
+MODEL=claude-sonnet-4-6 python starter_anthropic.py    # 更稳
 MODEL=qwen2.5:7b python starter.py                      # 大本机 model
 ```
 

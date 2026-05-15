@@ -100,7 +100,7 @@ The framework provides a sandboxed Python interpreter; the agent imports tools, 
 ## Want smarter answers?
 
 ```bash
-MODEL=anthropic/claude-sonnet-4-5 python starter_anthropic.py  # most stable
+MODEL=anthropic/claude-sonnet-4-6 python starter_anthropic.py  # most stable
 MODEL=qwen2.5:7b python starter.py                              # larger local model
 ```
 

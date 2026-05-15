@@ -115,7 +115,7 @@ We use sequential (simplest, deterministic). Hierarchical lets a manager agent d
 ## Want smarter answers?
 
 ```bash
-MODEL=anthropic/claude-sonnet-4-5 python starter_anthropic.py  # higher quality
+MODEL=anthropic/claude-sonnet-4-6 python starter_anthropic.py  # higher quality
 MODEL=ollama/qwen2.5:7b python starter.py                       # larger local model
 ```
 

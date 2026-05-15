@@ -48,8 +48,8 @@ If unsure, ask the user to run `ollama list` and verify.
 | Model | Use case | Pricing (per 1M tokens) |
 |---|---|---|
 | **`claude-haiku-4-5`** | Cheapest cloud option, OK for all exercises | $1 input / $5 output |
-| **`claude-sonnet-4-5`** | Production default, agent development | $3 input / $15 output |
-| **`claude-opus-4-5`** | Highest quality, complex reasoning | $15 input / $75 output |
+| **`claude-sonnet-4-6`** | Production default, agent development | $3 input / $15 output |
+| **`claude-opus-4-7`** | Highest quality, complex reasoning | $5 input / $25 output |
 
 ## Framing rules (do not violate)
 

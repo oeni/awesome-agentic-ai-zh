@@ -82,7 +82,7 @@ python test_anthropic.py  # 验 Path B (Anthropic) starter_anthropic.py 逻辑
 预设用 `claude-haiku-4-5`（最便宜）。改成 sonnet：
 
 ```bash
-MODEL=claude-sonnet-4-5 python starter_anthropic.py
+MODEL=claude-sonnet-4-6 python starter_anthropic.py
 ```
 
 或 Ollama path 换更大 model：
