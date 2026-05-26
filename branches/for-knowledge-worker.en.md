@@ -134,7 +134,7 @@ Recommended progression:
 | **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity (web) | Most knowledge workers start here | 0 (if you can use a browser) |
 | **Tier 1** | Claude Desktop + MCP (Gmail / Notion / calendar) | Repeat workflows over local / cloud files | Half a day |
 | **Tier 2** | n8n / Make / Langflow (automation platforms) | Connecting several SaaS tools without writing code | 1 week of setup |
-| **Tier 3** | Claude Code / Codex / your own Python | Dev background or dev support, production-grade workflows | Several weeks, overlaps with Track A |
+| **Tier 3** | Claude Code / Codex / your own Python | Dev background or dev support, workflows ready for production deployment | Several weeks, overlaps with Track A |
 
 **Tier 3+ (CLI / SDK) is too heavy for most knowledge worker tasks**. Most people can stop at Tier 1-2.
 

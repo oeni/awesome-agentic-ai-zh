@@ -134,7 +134,7 @@ Slack / Gmail / Discord 等。Anthropic 原本维护的 reference server 已于 
 | **Tier 0** | Claude.ai / ChatGPT / Gemini / Perplexity（网页版） | 大多数知识工作者从这里开始 | 0（会用浏览器就行） |
 | **Tier 1** | Claude Desktop + MCP（Gmail / Notion / 日历） | 要对本机 / 云端文件重复跑流程 | 半天装好 |
 | **Tier 2** | n8n / Make / Langflow（自动化平台） | 要把多个 SaaS 工具串起来、不写 code | 1 周 setup |
-| **Tier 3** | Claude Code / Codex / 自己写 Python | 有 dev 背景或团队有 dev 支援、要 production-grade | 数周、跟 Track A 重叠 |
+| **Tier 3** | Claude Code / Codex / 自己写 Python | 有 dev 背景或团队有 dev 支援、要做能上线部署的成果 | 数周、跟 Track A 重叠 |
 
 **Tier 3+（CLI / SDK）对多数知识工作者任务来说太重**——不要被别人怂恿过去。多数人停在 Tier 1-2 就够。
 

@@ -371,7 +371,7 @@
 
 **What it does**: cross-DB MCP server — MySQL / PostgreSQL / Cloud SQL / Spanner / BigQuery.
 **Audience**: engineers running databases on Google Cloud, or anyone needing multi-engine support.
-**Notes**: open-source + Google-maintained; production-grade choice.
+**Notes**: open-source + Google-maintained; solid choice for production use.
 
 ### [bytebase/dbhub](https://github.com/bytebase/dbhub) ⭐⭐⭐⭐⭐
 
@@ -901,7 +901,7 @@ Claude is bad at token-heavy mechanical work (cost, context blowout); Codex is b
 
 **What it does**: Claude Code marketplace for multi-agent collaboration — task splitter, output reconciler, adversarial debate, shared memory, acceptance gate. Composes with codex-delegate / gemini-delegate.
 **Audience**: people running 2+ delegate agents per round who want to see one way of packaging multi-agent coordination into a marketplace.
-**Notes**: **experimental** — don't treat this as a production-grade framework. It's the maintainer's own setup made public as a reference. For production-grade multi-agent, see LangGraph / AutoGen / CrewAI in Stage 7.
+**Notes**: **experimental** — don't treat this as a framework ready for production use. It's the maintainer's own setup made public as a reference. For multi-agent frameworks built for production, see LangGraph / AutoGen / CrewAI in Stage 7.
 
 ---
 

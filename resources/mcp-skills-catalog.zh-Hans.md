@@ -373,7 +373,7 @@
 
 **教什么**：跨 DB 的 MCP server——MySQL / PostgreSQL / Cloud SQL / Spanner / BigQuery 一次包。
 **适合谁**：在 Google Cloud 上跑 DB 的工程师、要支持多 DB 引擎的开发者。
-**备注**：开源 + Google 官方维护，是 production-grade 的选择。
+**备注**：开源 + Google 官方维护，是可上线使用的选择。
 
 ### [bytebase/dbhub](https://github.com/bytebase/dbhub) ⭐⭐⭐⭐⭐
 
@@ -893,7 +893,7 @@
 
 **教什么**：Claude Code marketplace for multi-agent collaboration——task splitter、output reconciler、adversarial debate、shared memory、acceptance gate。跟 codex-delegate / gemini-delegate 组合用。
 **适合谁**：要跑 2+ delegate agent 在同一轮、想看 multi-agent coordination 怎么打包成 marketplace 的人。
-**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要 production-grade 的请看 Stage 7 的 LangGraph / AutoGen / CrewAI。
+**备注**：experimental——别把它当作生产级 framework，当作维护者把自己 setup 公开的 reference 看就好。要可上线部署的请看 Stage 7 的 LangGraph / AutoGen / CrewAI。
 
 ---
 
